@@ -25,13 +25,37 @@ const Highlights = () => {
   });
   const onAddItem = (txt: string, title: string) => {
     if (title.includes("objectives")) {
-      setState((prevState) => ({
-        ...prevState,
-        objectives: {
-          ...prevState.objectives,
-          content: prevState.objectives.content.push(txt),
-        },
-      }));
+      setState(
+        (prevState: StateInterface): StateInterface => ({
+          ...prevState,
+          objectives: {
+            ...prevState.objectives,
+            content: [...prevState.objectives.content, txt],
+          },
+        })
+      );
+    }
+    if (title.includes("do")) {
+      setState(
+        (prevState: StateInterface): StateInterface => ({
+          ...prevState,
+          actions: {
+            ...prevState.actions,
+            content: [...prevState.actions.content, txt],
+          },
+        })
+      );
+    }
+    if (title.includes("Deadlines")) {
+      setState(
+        (prevState: StateInterface): StateInterface => ({
+          ...prevState,
+          deadlines: {
+            ...prevState.deadlines,
+            content: [...prevState.deadlines.content, txt],
+          },
+        })
+      );
     }
   };
   return (
