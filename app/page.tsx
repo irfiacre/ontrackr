@@ -1,4 +1,5 @@
 import DayThemeCard from "./components/Cards/DayThemeCard";
+import DayActivities from "./View/DaysActivities";
 import Highlights from "./View/Highlights";
 
 export default function Home() {
@@ -53,6 +54,9 @@ export default function Home() {
         </div>
         <div>
           <Highlights />
+        </div>
+        <div>
+          <DayActivities />
         </div>
       </div>
     </main>
