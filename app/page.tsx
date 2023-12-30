@@ -52,7 +52,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div>
+        <div className="py-10">
           <Highlights />
         </div>
         <div>
