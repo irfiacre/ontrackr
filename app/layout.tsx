@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "./components/LayoutCompmontents/Navbar";
 import Footer from "./components/LayoutCompmontents/Footer";
+import Sidebar from "./components/LayoutCompmontents/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-        <Navbar />
         <div className="px-4 py-2">{children}</div>
+        <Sidebar />
         <Footer />
       </body>
     </html>
