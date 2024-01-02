@@ -20,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-        <div className="px-4 py-2">{children}</div>
-        <Sidebar />
+        <div className="flex ">
+          <Sidebar />
+          <div className="px-4 py-2">{children}</div>
+        </div>
         <Footer />
       </body>
     </html>

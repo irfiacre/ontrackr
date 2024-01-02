@@ -1,9 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
+import Link from "next/link";
 
 const Sidebar = () => {
   const menuItems = [
     {
       title: "Dashboard",
+      link: "/",
       icon: (
         <path
           strokeLinecap="round"
@@ -15,65 +18,111 @@ const Sidebar = () => {
     },
     {
       title: "Today",
+      link: "/today",
       icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-        ></path>
+        <span className="text-primary-dark-1 border border-primary-dark-1 rounded-sm text-xs px-1 py-0 bg-primary-dark-1 text-white">
+          {new Date().getDate()}
+        </span>
       ),
     },
     {
       title: "Upcoming",
+      link: "/week",
       icon: (
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
-          d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-        ></path>
+          d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"
+        />
       ),
     },
     {
       title: "Calendar",
+      link: "/calendar",
       icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-        ></path>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+          />
+        </svg>
       ),
     },
   ];
+  const userInfo = {
+    username: "janeDoe",
+    firstName: "Jane",
+    lastName: "Doe",
+    image:
+      "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg",
+  };
   return (
-    <div className="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800">
-      <div className="fixed flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
-        <div className="flex items-center justify-center h-14 border-b"></div>
+    <div className="flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800">
+      <div className="relative flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
+        <div className="flex items-center justify-between h-14 border-b">
+          <div className="flex items-center ml-4">
+            <div className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img alt="User Img" src={userInfo.image} />
+              </div>
+            </div>
+            <strong className="text-xl tracking-wide truncate text-center align-middle text-primary-dark-1">
+              {`${userInfo.firstName} ${userInfo.lastName}`}
+            </strong>
+          </div>
+          <div className="mr-4 cursor-pointer btn btn-ghost text-primary-dark-1 hover:bg-primary-0 hover:bg-opacity-25">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75Zm0 10.5a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1-.75-.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
         <div className="overflow-y-auto overflow-x-hidden flex-grow">
           <ul className="flex flex-col py-4 space-y-1">
             {menuItems.map((elt) => (
               <li key={elt.title}>
-                <a
-                  href="#"
-                  className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+                <Link
+                  href={elt.link}
+                  className="relative flex flex-row items-center h-11 focus:outline-none
+                    hover:bg-primary-0 hover:bg-opacity-25 text-primary-dark-1 hover:text-primary-3
+                    focus:bg-primary-0 focus:bg-opacity-20 focus:text-primary-dark-0
+                      border-l-4 border-transparent pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      {elt.icon}
-                    </svg>
+                    {elt.title !== "Today" ? (
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        {elt.icon}
+                      </svg>
+                    ) : (
+                      elt.icon
+                    )}
                   </span>
                   <span className="ml-2 text-sm tracking-wide truncate">
                     {elt.title}
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
