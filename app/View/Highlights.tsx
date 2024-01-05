@@ -59,25 +59,22 @@ const Highlights = () => {
     }
   };
   return (
-    <div>
-      <h1>Highlights</h1>
-      <div className="flex gap-5 flex-wrap">
-        <HighlightCard
-          title={state.objectives.title}
-          content={state.objectives.content}
-          onAddItem={onAddItem}
-        />
-        <HighlightCard
-          title={state.actions.title}
-          content={state.actions.content}
-          onAddItem={onAddItem}
-        />
-        <HighlightCard
-          title={state.deadlines.title}
-          content={state.deadlines.content}
-          onAddItem={onAddItem}
-        />
-      </div>
+    <div className="flex gap-5 flex-wrap">
+      <HighlightCard
+        title={state.objectives.title}
+        content={state.objectives.content}
+        onAddItem={onAddItem}
+      />
+      <HighlightCard
+        title={state.actions.title}
+        content={state.actions.content}
+        onAddItem={onAddItem}
+      />
+      <HighlightCard
+        title={state.deadlines.title}
+        content={state.deadlines.content}
+        onAddItem={onAddItem}
+      />
     </div>
   );
 };

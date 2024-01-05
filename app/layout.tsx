@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./components/LayoutCompmontents/Navbar";
-import Footer from "./components/LayoutCompmontents/Footer";
-import Sidebar from "./components/LayoutCompmontents/Sidebar";
+import Navbar from "./components/LayoutCompontents/Navbar";
+import Footer from "./components/LayoutCompontents/Footer";
+import Sidebar from "./components/LayoutCompontents/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-        <div className="flex ">
+        <div className="flex">
           <Sidebar />
-          <div className="px-4 py-2">{children}</div>
+          <div
+            className="px-2 py-2"
+            style={{ padding: "3vh 3%", width: "100%" }}
+          >
+            {children}
+          </div>
         </div>
         <Footer />
       </body>

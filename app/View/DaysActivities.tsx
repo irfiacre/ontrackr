@@ -47,15 +47,12 @@ const DayActivities = () => {
   );
 
   return (
-    <div>
-      <h1>DayActivities</h1>
-      <div className="flex gap-5 flex-wrap">
-        {state.map((elt) => (
-          <div key={elt.title}>
-            <DayActivitiesCard title={elt.title} content={elt.content} />
-          </div>
-        ))}
-      </div>
+    <div className="flex gap-5 flex-wrap">
+      {state.map((elt) => (
+        <div key={elt.title}>
+          <DayActivitiesCard title={elt.title} content={elt.content} />
+        </div>
+      ))}
     </div>
   );
 };

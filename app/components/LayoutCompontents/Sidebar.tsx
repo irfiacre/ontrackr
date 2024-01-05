@@ -1,6 +1,11 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+
+interface StateInterface {
+  isHidden: boolean;
+}
 
 const Sidebar = () => {
   const menuItems = [
@@ -64,11 +69,34 @@ const Sidebar = () => {
     image:
       "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg",
   };
+
+  const [state, setState] = useState<StateInterface>({
+    isHidden: false,
+  });
+  const changeHiddenStatus = () =>
+    setState(
+      (prevState: StateInterface): StateInterface => ({
+        ...prevState,
+        isHidden: prevState.isHidden ? false : true,
+      })
+    );
   return (
-    <div className="flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800">
-      <div className="relative flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
-        <div className="flex items-center justify-between h-14 border-b">
-          <div className="flex items-center ml-4">
+    <div className="flex flex-col flex-shrink-0 antialiased bg-gray-50 text-gray-800 min-h-screen">
+      <div
+        className={`relative flex flex-col top-0 left-0 bg-white h-full border-r ${
+          state.isHidden ? "w-12/12" : "w-64"
+        }`}
+      >
+        <div
+          className={`flex items-center h-14 border-b ${
+            state.isHidden ? "px-2" : "justify-between"
+          }`}
+        >
+          <div
+            className={`flex items-center ml-4 ${
+              state.isHidden ? "hidden" : ""
+            }`}
+          >
             <div className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img alt="User Img" src={userInfo.image} />
@@ -78,7 +106,10 @@ const Sidebar = () => {
               {`${userInfo.firstName} ${userInfo.lastName}`}
             </strong>
           </div>
-          <div className="mr-4 cursor-pointer btn btn-ghost text-primary-dark-1 hover:bg-primary-0 hover:bg-opacity-25">
+          <div
+            onClick={changeHiddenStatus}
+            className="mr-4 cursor-pointer btn btn-ghost text-primary-dark-1 hover:bg-primary-0 hover:bg-opacity-5"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -107,7 +138,7 @@ const Sidebar = () => {
                   <span className="inline-flex justify-center items-center ml-4">
                     {elt.title !== "Today" ? (
                       <svg
-                        className="w-5 h-5"
+                        className="w-6 h-6"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -119,7 +150,11 @@ const Sidebar = () => {
                       elt.icon
                     )}
                   </span>
-                  <span className="ml-2 text-sm tracking-wide truncate">
+                  <span
+                    className={`ml-2 text-sm tracking-wide truncate ${
+                      state.isHidden ? "hidden" : ""
+                    }`}
+                  >
                     {elt.title}
                   </span>
                 </Link>

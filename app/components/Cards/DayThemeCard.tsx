@@ -9,8 +9,8 @@ interface CardProps {
 
 const DayThemeCard = ({ ...props }: CardProps) => {
   return (
-    <div className={`card bg-slate-800  text-primary-content p-3`}>
-      <div className="card-body">
+    <div className={`card bg-primary-dark-2 text-primary-content p-3`}>
+      <div className="card-body text-white">
         <h2 className="card-title">{props.dayName}</h2>
         <p>{props.themeName}</p>
       </div>

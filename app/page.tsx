@@ -41,10 +41,11 @@ export default function Home() {
     },
   ];
 
+  const titleStyle = "text-xl font-bold px-2 py-1 text-primary-dark-1";
   return (
     <main>
       <div>
-        <h1>Days Theme</h1>
+        <h1 className={titleStyle}>Days Theme</h1>
         <div className="flex gap-5 flex-wrap">
           {days.map((dayElt) => (
             <div key={dayElt.color}>
@@ -53,9 +54,11 @@ export default function Home() {
           ))}
         </div>
         <div className="py-10">
+          <h1 className={titleStyle}>Highlights</h1>
           <Highlights />
         </div>
         <div>
+          <h1 className={titleStyle}>DayActivities</h1>
           <DayActivities />
         </div>
       </div>
