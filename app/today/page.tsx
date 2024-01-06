@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import ActivityComponent from "../components/ActivityComponent";
+import ActivityComponent from "../components/Activity/ActivityComponent";
 import moment from "moment";
+import AddActivity from "../components/Activity/AddTask";
 
 interface StateInterface {
   result: Array<{
@@ -14,17 +15,16 @@ const Today = () => {
   const [state, setState] = useState<StateInterface>({
     result: [
       {
-        title: "xxxxxx yyyyyy zzzzzz",
+        title: "Korem ipsum dolor sit amet consectetur adipisicing elit.",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.",
       },
       {
-        title: "xxxxxx yyyyyy zzzzzz",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.",
+        title: "Porem ipsum dolor sit amet consectetur adipisicing elit.",
+        description: "",
       },
       {
-        title: "xxxxxx yyyyyy zzzzzz",
+        title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.",
       },
@@ -65,6 +65,9 @@ const Today = () => {
               />
             </div>
           ))}
+        </div>
+        <div>
+          <AddActivity />
         </div>
       </div>
     </main>
