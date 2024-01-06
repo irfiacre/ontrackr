@@ -8,7 +8,14 @@ interface StateInterface {
   result: Array<{
     title: string;
     description: string;
+    dueDate: string;
   }>;
+}
+
+interface TaskInfo {
+  title: string;
+  description: string;
+  dueDate: string;
 }
 
 const Today = () => {
@@ -17,19 +24,32 @@ const Today = () => {
       {
         title: "Korem ipsum dolor sit amet consectetur adipisicing elit.",
         description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae qntium nemo autem.",
+        dueDate: "2024-02-10",
       },
       {
         title: "Porem ipsum dolor sit amet consectetur adipisicing elit.",
         description: "",
+        dueDate: "2024-02-10",
       },
       {
         title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
         description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.",
+        dueDate: "2024-02-10",
       },
     ],
   });
+  const onAddTask = (taskInfo: TaskInfo) => {
+    console.log("======", taskInfo);
+
+    setState(
+      (prevState: StateInterface): StateInterface => ({
+        ...prevState,
+        result: [...prevState.result, taskInfo],
+      })
+    );
+  };
   return (
     <main>
       <div>
@@ -62,12 +82,13 @@ const Today = () => {
               <ActivityComponent
                 title={elt.title}
                 description={elt.description}
+                dueDate={elt.dueDate}
               />
             </div>
           ))}
         </div>
         <div>
-          <AddActivity />
+          <AddActivity onAddTaskInfo={onAddTask} />
         </div>
       </div>
     </main>

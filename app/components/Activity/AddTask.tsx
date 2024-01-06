@@ -8,14 +8,18 @@ interface TaskInfo {
   dueDate: string;
 }
 
-const AddActivity = () => {
-  const [modelVisible, setModelVisible] = useState<boolean>(true);
-
+const AddActivity = ({
+  ...props
+}: {
+  onAddTaskInfo: (taskInfo: TaskInfo) => void;
+}) => {
+  const [modelVisible, setModelVisible] = useState<boolean>(false);
+  const { onAddTaskInfo } = props;
   const changeModelView = (cond: boolean) => setModelVisible(cond);
 
   const onAddTask = (taskInfo: TaskInfo) => {
     changeModelView(false);
-    console.log("---->", taskInfo);
+    onAddTaskInfo(taskInfo);
   };
 
   return (
@@ -48,7 +52,14 @@ const AddActivity = () => {
         </div>
       </div>
 
-      <AddActivityModel onAddTask={onAddTask} />
+      {modelVisible ? (
+        <AddActivityModel
+          onAddTask={onAddTask}
+          changeModelView={() => changeModelView(false)}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 };

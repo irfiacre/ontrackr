@@ -24,7 +24,7 @@ export default function RootLayout({
           <Sidebar />
           <div
             className="px-2 py-2"
-            style={{ padding: "3vh 3%", width: "100%" }}
+            style={{ padding: "3vh 3%", paddingBottom: "10vh", width: "100%" }}
           >
             {children}
           </div>

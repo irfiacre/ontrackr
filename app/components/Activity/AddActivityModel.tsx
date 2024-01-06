@@ -11,6 +11,7 @@ const AddActivityModel = ({
   ...props
 }: {
   onAddTask: (state: StateInterface) => void;
+  changeModelView: () => void;
 }) => {
   const [state, setState] = useState<StateInterface>({
     title: "",
@@ -18,7 +19,7 @@ const AddActivityModel = ({
     dueDate: "",
   });
 
-  const { onAddTask } = props;
+  const { onAddTask, changeModelView } = props;
 
   const onInputChange = (type: string = "title", value: string) => {
     setState(
@@ -42,13 +43,14 @@ const AddActivityModel = ({
               name="task"
               value={state.title}
               onChange={(e) => onInputChange("title", e.target.value)}
-              className="focus:outline-0 bg-white w-full"
+              className="focus:outline-0 bg-white w-full text-primary-dark-2"
               placeholder="Add Title..."
             />
             <button
               type="button"
-              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              className="text-gray-400 bg-transparent hover:bg-primary-0 hover:bg-opacity-5 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
               data-modal-hide="default-modal"
+              onClick={changeModelView}
             >
               <svg
                 className="w-3 h-3"
