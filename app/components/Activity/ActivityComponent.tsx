@@ -30,12 +30,14 @@ const ActivityComponent = ({ ...props }: Props) => {
           <p className="text-gray-500 break-words">{description}</p>
           <span
             className={`text-sm py-4 w-full flex ${
-              moment(dueDate).isAfter(moment(), "day")
+              moment(dueDate).isSame(moment(), "day")
                 ? "text-primary-1 font-normal"
                 : "text-gray-400"
             }`}
           >
-            {moment(dueDate).format("LL")}
+            {moment(dueDate).isSame(moment(), "day")
+              ? "Today"
+              : moment(dueDate).format("LL")}
           </span>
         </div>
       </div>

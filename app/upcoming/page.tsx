@@ -25,18 +25,18 @@ const Today = () => {
         title: "Korem ipsum dolor sit amet consectetur adipisicing elit.",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae qntium nemo autem.",
-        dueDate: `${moment()}`,
+        dueDate: "2025-02-10",
       },
       {
         title: "Porem ipsum dolor sit amet consectetur adipisicing elit.",
         description: "",
-        dueDate: `${moment()}`,
+        dueDate: "2025-02-10",
       },
       {
         title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.eaque rerum! Provident similique accusantium nemo autem.",
-        dueDate: `${moment()}`,
+        dueDate: "2025-02-10",
       },
     ],
   });
@@ -55,7 +55,7 @@ const Today = () => {
       <div>
         <div className="text-primary-dark-1 flex justify-between">
           <h1 className="text-xl font-bold px-2 py-1 text-primary-dark-1">
-            {moment().format("LLLL")} (Today)
+            Due Later
           </h1>
 
           <div className="cursor-pointer btn btn-ghost hover:bg-primary-0 hover:bg-opacity-5">

@@ -32,7 +32,7 @@ const Sidebar = () => {
     },
     {
       title: "Upcoming",
-      link: "/week",
+      link: "/upcoming",
       icon: (
         <path
           strokeLinecap="round"
@@ -42,7 +42,7 @@ const Sidebar = () => {
       ),
     },
     {
-      title: "Calendar",
+      title: "My Calendar",
       link: "/calendar",
       icon: (
         <svg
