@@ -45,6 +45,9 @@ export default function Home() {
   return (
     <main>
       <div>
+        <div>
+          <h1 className={titleStyle}>Analytics</h1>
+        </div>
         <h1 className={titleStyle}>Days Theme</h1>
         <div className="flex gap-5 flex-wrap">
           {days.map((dayElt) => (
@@ -56,10 +59,6 @@ export default function Home() {
         <div className="py-10">
           <h1 className={titleStyle}>Highlights</h1>
           <Highlights />
-        </div>
-        <div>
-          <h1 className={titleStyle}>DayActivities</h1>
-          <DayActivities />
         </div>
       </div>
     </main>

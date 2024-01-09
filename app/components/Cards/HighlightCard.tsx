@@ -13,12 +13,15 @@ const HighlightCard = ({ ...props }: Props) => {
 
   return (
     <div>
-      <div className={`card bg-slate-700  text-primary-content p-3`}>
+      <div className={`card bg-primary-3 text-white text-primary-content p-3`}>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
+          <p className="underline w-full border-b-2"></p>
           <div>
-            {content.map((elt) => (
-              <p key={elt}>{elt}</p>
+            {content.map((elt, index) => (
+              <p key={elt}>
+                {index + 1}. {elt}
+              </p>
             ))}
           </div>
         </div>
@@ -26,7 +29,7 @@ const HighlightCard = ({ ...props }: Props) => {
           <input
             type="text"
             placeholder="Add Item..."
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs text-primary-dark-2"
             onChange={(e) => onInputChange(e.target.value)}
           />
           <div
