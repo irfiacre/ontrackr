@@ -55,6 +55,10 @@ const Calendar = () => {
     }
   }, [month, year]);
 
+  const onInputChange = (text: string) => console.log("==============", text);
+  const onAddItem = (text: StateInterface, title: string) =>
+    console.log("==============", text, title);
+
   return (
     <div className="overflow-x-auto">
       <table className="table">
