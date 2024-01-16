@@ -55,9 +55,9 @@ const Calendar = () => {
     }
   }, [month, year]);
 
-  const onInputChange = (text: string) => console.log("==============", text);
-  const onAddItem = (text: StateInterface, title: string) =>
-    console.log("==============", text, title);
+  const onInputChange = (text: string) => console.log("======", text);
+  const onAddItem = (text: StateInterface, day: number) =>
+    console.log("======", text, day);
 
   return (
     <div className="overflow-x-auto">
@@ -89,7 +89,7 @@ const Calendar = () => {
                     <div
                       role="button"
                       className="btn btn-ghost btn-circle avatar"
-                      onClick={() => onAddItem(state, title)}
+                      onClick={() => onAddItem(state, dayElt)}
                     >
                       <svg
                         className="w-6 h-6 text-primary-1 cursor-pointer btn btn-ghost btn-circle"
