@@ -79,27 +79,34 @@ const Calendar = () => {
               {elt.map((dayElt) => (
                 <th key={elt[0]} className="h-10">
                   <span>{dayElt > 0 ? dayElt : ""}</span>
-                  <div className="">
-                    <input
-                      type="text"
-                      placeholder="Add Item..."
-                      className="input input-bordered w-full max-w-xs text-primary-dark-2"
-                      onChange={(e) => onInputChange(e.target.value)}
-                    />
-                    <div
-                      role="button"
-                      className="btn btn-ghost btn-circle avatar"
-                      onClick={() => onAddItem(state, dayElt)}
-                    >
-                      <svg
-                        className="w-6 h-6 text-primary-1 cursor-pointer btn btn-ghost btn-circle"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
+                  <div className="opacity-0 hover:opacity-100">
+                    <div>
+                      <h1 className="underline">Action List</h1>
+                      <div>xxxxxxxx</div>
+                    </div>
+
+                    <div className="flex w-60 h-28  cursor-pointer">
+                      <input
+                        type="text"
+                        placeholder="Add Item..."
+                        className="input input-bordered w-full text-primary-dark-2 font-normal"
+                        onChange={(e) => onInputChange(e.target.value)}
+                      />
+                      <div
+                        role="button"
+                        className="btn btn-ghost btn-circle avatar"
+                        onClick={() => onAddItem(state, dayElt)}
                       >
-                        <path d="M9.546.5a9.5 9.5 0 1 0 9.5 9.5 9.51 9.51 0 0 0-9.5-9.5ZM13.788 11h-3.242v3.242a1 1 0 1 1-2 0V11H5.304a1 1 0 0 1 0-2h3.242V5.758a1 1 0 0 1 2 0V9h3.242a1 1 0 1 1 0 2Z" />
-                      </svg>
+                        <svg
+                          className="w-6 h-6 text-primary-1 cursor-pointer"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.546.5a9.5 9.5 0 1 0 9.5 9.5 9.51 9.51 0 0 0-9.5-9.5ZM13.788 11h-3.242v3.242a1 1 0 1 1-2 0V11H5.304a1 1 0 0 1 0-2h3.242V5.758a1 1 0 0 1 2 0V9h3.242a1 1 0 1 1 0 2Z" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </th>
