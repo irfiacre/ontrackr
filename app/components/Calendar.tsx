@@ -2,6 +2,7 @@
 "use client";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
+import { generateRandomString } from "../helpers/helperMethods";
 
 const getDaysInMonth = (year: number, month: number): number => {
   return moment(`${year}-${month + 1}`, "YYYY-MM").daysInMonth();
@@ -16,10 +17,19 @@ interface StateInterface {
   monthWeeks: Array<Array<number>>;
 }
 
+interface TaskInterface {
+  day: any;
+  task: string;
+}
+
 const Calendar = () => {
   const [state, setState] = useState<StateInterface>({
     day: moment(),
     monthWeeks: [[]],
+  });
+  const [addedToDoState, setAddedToDoState] = useState<TaskInterface>({
+    day: 1,
+    task: "",
   });
 
   const year = state.day.year();
@@ -55,9 +65,15 @@ const Calendar = () => {
     }
   }, [month, year]);
 
-  const onInputChange = (text: string) => console.log("======", text);
-  const onAddItem = (text: StateInterface, day: number) =>
-    console.log("======", text, day);
+  const onInputChange = (day: number, text: string) =>
+    setAddedToDoState(
+      (prevState: TaskInterface): TaskInterface => ({
+        ...prevState,
+        day: day,
+        task: prevState.task.concat(text),
+      })
+    );
+  const onAddItem = () => console.log("======", addedToDoState);
 
   return (
     <div className="overflow-x-auto">
@@ -75,31 +91,31 @@ const Calendar = () => {
         </thead>
         <tbody>
           {state.monthWeeks.slice(0, weeksInMonth + 1).map((elt) => (
-            <tr key={`${elt[0]}`}>
+            <tr key={generateRandomString("tr")}>
               {elt.map((dayElt) => (
-                <th key={elt[0]} className="h-10">
+                <th key={generateRandomString("day")} className="h-10">
                   <span>{dayElt > 0 ? dayElt : ""}</span>
-                  <div className="opacity-0 hover:opacity-100">
+                  <div>
                     <div>
                       <h1 className="underline">Action List</h1>
                       <div>xxxxxxxx</div>
                     </div>
 
-                    <div className="flex w-60 h-28  cursor-pointer">
+                    <div className="flex hover:w-60 h-28  cursor-pointer opacity-0 hover:opacity-100">
                       <input
                         type="text"
                         placeholder="Add Item..."
                         className="input input-bordered w-full text-primary-dark-2 font-normal"
-                        onChange={(e) => onInputChange(e.target.value)}
+                        onChange={(e) => onInputChange(dayElt, e.target.value)}
+                        value={addedToDoState.task}
                       />
                       <div
                         role="button"
                         className="btn btn-ghost btn-circle avatar"
-                        onClick={() => onAddItem(state, dayElt)}
+                        onClick={() => onAddItem()}
                       >
                         <svg
                           className="w-6 h-6 text-primary-1 cursor-pointer"
-                          aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
                           viewBox="0 0 20 20"

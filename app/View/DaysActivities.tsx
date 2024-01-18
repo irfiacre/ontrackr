@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import DayActivitiesCard from "../components/Cards/DayActivitiesCard";
+import { generateRandomString } from "../helpers/helperMethods";
 
 // interface StateInterface {
 //    { title: string; content: Array<string> },
@@ -49,7 +50,7 @@ const DayActivities = () => {
   return (
     <div className="flex gap-5 flex-wrap">
       {state.map((elt) => (
-        <div key={elt.title}>
+        <div key={generateRandomString("dayActivity")}>
           <DayActivitiesCard title={elt.title} content={elt.content} />
         </div>
       ))}

@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./components/LayoutCompontents/Navbar";
 import Footer from "./components/LayoutCompontents/Footer";
 import Sidebar from "./components/LayoutCompontents/Sidebar";
 
@@ -19,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="winter">
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning={true}>
         <div className="flex">
           <Sidebar />
           <div

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ActivityComponent from "../components/Activity/ActivityComponent";
 import moment from "moment";
 import AddActivity from "../components/Activity/AddTask";
+import { generateRandomString } from "../helpers/helperMethods";
 
 interface StateInterface {
   result: Array<{
@@ -78,7 +79,7 @@ const Today = () => {
 
         <div>
           {state.result.map((elt) => (
-            <div key={elt.title}>
+            <div key={generateRandomString("title")}>
               <ActivityComponent
                 title={elt.title}
                 description={elt.description}

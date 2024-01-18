@@ -1,3 +1,4 @@
+import { generateRandomString } from "@/app/helpers/helperMethods";
 import React, { useState } from "react";
 
 interface Props {
@@ -19,7 +20,7 @@ const HighlightCard = ({ ...props }: Props) => {
           <p className="underline w-full border-b-2"></p>
           <div>
             {content.map((elt, index) => (
-              <p key={elt}>
+              <p key={generateRandomString("highlightCardContent")}>
                 {index + 1}. {elt}
               </p>
             ))}

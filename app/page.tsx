@@ -1,4 +1,5 @@
 import DayThemeCard from "./components/Cards/DayThemeCard";
+import { generateRandomString } from "./helpers/helperMethods";
 import DayActivities from "./View/DaysActivities";
 import Highlights from "./View/Highlights";
 
@@ -51,7 +52,7 @@ export default function Home() {
         <h1 className={titleStyle}>Days Theme</h1>
         <div className="flex gap-5 flex-wrap">
           {days.map((dayElt) => (
-            <div key={dayElt.color}>
+            <div key={generateRandomString("color")}>
               <DayThemeCard {...dayElt} />
             </div>
           ))}

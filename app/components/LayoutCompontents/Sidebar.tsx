@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import Link from "next/link";
+import { generateRandomString } from "@/app/helpers/helperMethods";
 
 interface StateInterface {
   isHidden: boolean;
@@ -127,7 +128,7 @@ const Sidebar = () => {
         <div className="overflow-y-auto overflow-x-hidden flex-grow">
           <ul className="flex flex-col py-4 space-y-1">
             {menuItems.map((elt) => (
-              <li key={elt.title}>
+              <li key={generateRandomString("sidebarTitle")}>
                 <Link
                   href={elt.link}
                   className="relative flex flex-row items-center h-11 focus:outline-none
