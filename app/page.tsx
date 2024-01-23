@@ -1,4 +1,5 @@
 import DayThemeCard from "./components/Cards/DayThemeCard";
+import Chart from "./components/Chart";
 import { generateRandomString } from "./helpers/helperMethods";
 import DayActivities from "./View/DaysActivities";
 import Highlights from "./View/Highlights";
@@ -48,6 +49,7 @@ export default function Home() {
       <div>
         <div>
           <h1 className={titleStyle}>Analytics</h1>
+          <Chart />
         </div>
         <h1 className={titleStyle}>Days Theme</h1>
         <div className="flex gap-5 flex-wrap">
