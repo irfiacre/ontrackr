@@ -50,6 +50,7 @@ export default function Home() {
         <div>
           <h1 className={titleStyle}>Analytics</h1>
           <Chart />
+          <br />
         </div>
         <h1 className={titleStyle}>Days Theme</h1>
         <div className="flex gap-5 flex-wrap">

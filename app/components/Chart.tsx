@@ -29,25 +29,25 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Chart.js Bar Chart",
+      text: "Tasks created and Tasks closed",
     },
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const labels = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
 
 export const data = {
   labels,
   datasets: [
     {
-      label: "Dataset 1",
-      data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      label: "Tasks Created",
+      data: labels.map(() => faker.number.int({ min: 0, max: 10 })),
+      backgroundColor: "#730437",
     },
     {
-      label: "Dataset 2",
-      data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
+      label: "Tasks Closed",
+      data: labels.map(() => faker.number.int({ min: 0, max: 20 })),
+      backgroundColor: "#F90C71",
     },
   ],
 };

@@ -8,18 +8,19 @@ interface CardProps {
 }
 
 const DayThemeCard = ({ ...props }: CardProps) => {
+  const { themeName, dayName } = props;
   return (
     <div className={`card bg-primary-dark-2 text-primary-content p-3`}>
       <div className="card-body text-white">
-        <input
+        {/* <input
           type="text"
           name="xxxx"
           id="xxx"
           className="bg-primary-dark-2 "
-          value={props.dayName}
-        />
-        <h2 className="card-title">{props.dayName}</h2>
-        <p>{props.themeName}</p>
+          value={dayName}
+        /> */}
+        <h2 className="card-title">{dayName}</h2>
+        <p>{themeName}</p>
       </div>
     </div>
   );
