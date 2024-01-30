@@ -48,7 +48,7 @@ export default function Home() {
     <main>
       <div>
         <div>
-          <h1 className={titleStyle}>Analytics</h1>
+          <h1 className={titleStyle}> Analytics</h1>
           <Chart />
           <br />
         </div>
